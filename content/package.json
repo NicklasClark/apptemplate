@@ -16,16 +16,14 @@
   },
   "dependencies": {
     "javascript-brunch": "> 1.0 < 1.6",
-
     "css-brunch": "> 1.0 < 1.6",
     "stylus-brunch": "> 1.0 < 1.6",
-
     "handlebars-brunch": "> 1.0 < 1.6",
-
     "uglify-js-brunch": "> 1.0 < 1.6",
     "clean-css-brunch": "> 1.0 < 1.6",
     "imageoptmizer-brunch": "0.0.1",
-    "jspreprocess-brunch": "0.0.1"
+    "jspreprocess-brunch": "0.0.1",
+    "sass-brunch": "~1.5.1"
   },
   "devDependencies": {
     "mocha": "0.14.0",
