@@ -19,11 +19,10 @@ exports.config =
           'vendor/scripts/backbone/backstack.js',
           'vendor/scripts/jquery.royalslider.min.js',
           'vendor/scripts/jquery.chardinjs.min.js'
-
         ]
 
     stylesheets:
-      defaultExtension: 'styl'
+      defaultExtension: 'css'
       joinTo: 'stylesheets/app.css'
       order:
         before: ['vendor/styles/normalize.css', 'vendor/styles/jquerymobileanimations.css', 'jquery.mobile.1.3.1.min.css', 'vendor/styles/royalslider.css', 'vendor/styles/chardinjs.css']
@@ -32,3 +31,7 @@ exports.config =
     templates:
       defaultExtension: 'hbs'
       joinTo: 'javascripts/app.js'
+
+
+
+
