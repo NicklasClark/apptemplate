@@ -22,7 +22,7 @@ exports.config =
         ]
 
     stylesheets:
-      defaultExtension: 'css'
+      defaultExtension: 'scss'
       joinTo: 'stylesheets/app.css'
       order:
         before: ['vendor/styles/normalize.css', 'vendor/styles/jquerymobileanimations.css', 'jquery.mobile.1.3.1.min.css', 'vendor/styles/royalslider.css', 'vendor/styles/chardinjs.css']
