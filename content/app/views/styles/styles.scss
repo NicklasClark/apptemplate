@@ -1,6 +1,14 @@
 /* Sassy Stylesheet */
 .test {
   span {
-    border: 1px solid green;
+    border: 2px solid red;
+  }
+}
+
+#tester {
+  a {
+    &:hover, &:active {
+      color: green;
+    }
   }
 }

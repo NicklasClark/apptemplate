@@ -1,6 +1,7 @@
 exports.config =
   # See docs at http://brunch.readthedocs.org/en/latest/config.html.
   buildTarget: 'iOS'
+
   files:
     javascripts:
       defaultExtension: 'js'
@@ -32,6 +33,7 @@ exports.config =
       defaultExtension: 'hbs'
       joinTo: 'javascripts/app.js'
 
-
-
+    plugins:
+      sass:
+        debug: 'comments'
 
