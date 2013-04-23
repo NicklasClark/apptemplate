@@ -82,7 +82,7 @@
 window.require.register("application", function(exports, require, module) {
   // Application bootstrapper.
   Application = {
-  	
+
   	//## If using production and dev versions of server
   	//useProductionEnv: true,
 
@@ -92,26 +92,28 @@ window.require.register("application", function(exports, require, module) {
   	//	if ( window.localStorage.getItem("launchCount") == null){
   	//		window.localStorage.setItem("launchCount","1");
   	//	}
-  		
+
 
   	//	Set production and development servers
   	//	this.serverURL = this.useProductionEnv ? 'http://productionurl.com' : 'http://devurl.com';
-  		
-  	//	Keeps app from jumping		
+
+  	//	Keeps app from jumping
   		$.mobile.defaultHomeScroll = 0;
-  		
+
   	// 	Setting view to location in views folder
 
-  		var Home = require('views/home_view');
-  		var Router = require('lib/router');  
+  		var Home = require('views/home-view');
+  		var Router = require('lib/router');
+  		var PullRefresh = require('views/pullRefresh-view');
 
   		this.homeView = new HomeView();
   		this.router = new Router();
+  		this.pullRefreshView = new PullRefresh;
 
-  		if (typeof Object.freeze === 'function') Object.freeze(this);  
+  		if (typeof Object.freeze === 'function') Object.freeze(this);
   		// Initializing BackStack.StackNavigator for the #container div
   	},
-  	
+
   }
 
   module.exports = Application;
@@ -330,7 +332,15 @@ window.require.register("models/model", function(exports, require, module) {
   });
   
 });
-window.require.register("views/example_view", function(exports, require, module) {
+window.require.register("templates/pull-refresh", function(exports, require, module) {
+  module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+    helpers = helpers || Handlebars.helpers;
+    var foundHelper, self=this;
+
+
+    return "<div id=\"header\">Pull Refresh</div>\n\n<div id=\"wrapper\">\n  <div id=\"scroller\">\n    <div id=\"pullDown\">\n      <span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">Pull down to refresh...</span>\n    </div>\n\n    <ul id=\"thelist\">\n      <li>Row 1</li>\n      <li>Row 2</li>\n      <li>Row 3</li>\n      <li>Row 4</li>\n      <li>Row 5</li>\n      <li>Row 6</li>\n      <li>Row 7</li>\n      <li>Row 8</li>\n      <li>Row 9</li>\n      <li>Row 10</li>\n      <li>Row 11</li>\n      <li>Row 12</li>\n      <li>Row 13</li>\n      <li>Row 14</li>\n      <li>Row 15</li>\n      <li>Row 16</li>\n      <li>Row 17</li>\n      <li>Row 18</li>\n      <li>Row 19</li>\n      <li>Row 20</li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"footer\">Footer</div>";});
+});
+window.require.register("views/example-view", function(exports, require, module) {
   //Standard View initialization
   var View = require('./view');
 
@@ -404,6 +414,72 @@ window.require.register("views/example_view", function(exports, require, module)
 
   	
   	enableScroll: function() {		
+  		scrollItems = new iScroll('scrollItems', {useTransition:true,hScroll:false});
+  	}
+
+  });
+  
+});
+window.require.register("views/pullRefresh-view", function(exports, require, module) {
+  //Standard View initialization
+  var View = require('./view');
+  var template = require('./templates/pull-refresh');
+
+  module.exports = View.extend({
+  	id: 'pull-refresh',
+  	template: template,
+  	events: {
+  		"dataLoaded":"append"
+  	},
+
+  	initialize: function() {
+
+  	},
+
+  	render: function() {
+  		//Called on page render
+
+  		//If you are using loading spinner, don't forget .hide
+  	//	$('#theSpinner').show();
+
+  	//Example JSON call
+
+  		//Set local model
+  		this.descriptiveName = new Model();
+
+  		//Set empty json
+  		this.descriptiveName.nameJSON ={};
+
+  		//render template at beginning to have quicker loads
+  		this.$el.html(this.template(this.descriptiveName.nameJSON));
+
+  		//Call to model to fetch data
+  		this.descriptiveName.fetch({
+  			processData:true,
+  			xhrFields: {withCredentials: true},
+  			//or update:true
+  			add:true,
+  			data: {parameters:parameters},
+  			success: function(data){
+  				Application.thisView.$el.trigger("dataLoaded");
+  			}
+  		});
+
+  		return this;
+  	},
+
+  	append: function(){
+  		this.descriptiveName.nameJSON = this.descriptiveName.handle();
+  		this.$el.html(this.template(this.descriptiveName.nameJSON));
+  		this.enableScroll();
+  	},
+
+  //sample filepicker call
+  //sample childbrowser
+  //sample in app browser call
+  //what else?
+
+  	enableScroll: function() {
   		scrollItems = new iScroll('scrollItems', {useTransition:true,hScroll:false});
   	}
 

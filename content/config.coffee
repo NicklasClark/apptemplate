@@ -18,9 +18,11 @@ exports.config =
           'vendor/scripts/backbone/underscore-1.4.4-min.js',
           'vendor/scripts/backbone/json2.js',
           'vendor/scripts/backbone/backbone1.0-min.js',
-          'vendor/scripts/backbone/backstack.js'
-         # 'vendor/scripts/jquery.royalslider.min.js',
-         # 'vendor/scripts/jquery.chardinjs.min.js'
+          'vendor/scripts/backbone/backstack.js',
+          'vendor/scripts/iscroll.js'
+         # 'vendor/scripts/_bg-options.js'
+         # 'vendor/scripts/_jquery.royalslider.min.js',
+         # 'vendor/scripts/_jquery.chardinjs.min.js'
         ]
 
     stylesheets:
@@ -30,8 +32,8 @@ exports.config =
         before: [
           'vendor/styles/normalize.css',
           'jquery.mobile.1.3.1.min.css'
-          # 'vendor/styles/royalslider.css',
-          #'vendor/styles/chardinjs.css'
+          # 'vendor/styles/_royalslider.css',
+          # 'vendor/styles/_chardinjs.css'
         ]
         after: ['']
 
