@@ -2,12 +2,12 @@
 var View = require('./view');
 
 //Template declaration
-var template = require('./templates/example');
+var template = require('./templates/pull-refresh');
 //For multiple template views
 //var SecondTemplate = require('./templates/secondExample');
 
 //Models required for objects
-var Model = require('../models/example');
+var Model = require('../models/example_model');
 
 module.exports = View.extend({
 	id: 'example-view',

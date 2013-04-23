@@ -20,11 +20,11 @@ Application = {
 
 	// 	Setting view to location in views folder
 
-		var Home = require('views/home-view');
+		var Home = require('views/example-view');
 		var Router = require('lib/router');
 		var PullRefresh = require('views/pullRefresh-view');
 
-		this.homeView = new HomeView();
+		this.homeView = new Home();
 		this.router = new Router();
 		this.pullRefreshView = new PullRefresh;
 

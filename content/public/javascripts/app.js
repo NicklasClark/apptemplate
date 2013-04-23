@@ -102,11 +102,11 @@ window.require.register("application", function(exports, require, module) {
 
   	// 	Setting view to location in views folder
 
-  		var Home = require('views/home-view');
+  		var Home = require('views/example-view');
   		var Router = require('lib/router');
   		var PullRefresh = require('views/pullRefresh-view');
 
-  		this.homeView = new HomeView();
+  		this.homeView = new Home();
   		this.router = new Router();
   		this.pullRefreshView = new PullRefresh;
 
@@ -129,9 +129,9 @@ window.require.register("initialize", function(exports, require, module) {
       $.mobile.pushStateEnabled = false;
 
       // Remove page from DOM when it's being replaced
-      $('div[data-role="page"]').live('pagehide', function (event, ui) {
-          $(event.currentTarget).remove();
-      });                                            
+      $(document).delegate('div[data-role="page"]', 'pagehide', function (event, ui) {
+  	    $(event.currentTarget).remove();
+  	});                                           
   	
     application.initialize();
     Backbone.history.start();
@@ -154,13 +154,13 @@ window.require.register("lib/router", function(exports, require, module) {
 
   	initialize:function () {
   		// Handle back button throughout the application or menu buttons
-  		$('#back-button').live('vclick', function(e) {
+  		$('#back-button').on('vclick', function(e) {
   			e.preventDefault();
   			$.mobile.activePage.back = true;
   			window.history.back();
   		});
   		
-  		$('.navbar-close').live('vclick', function(e) {
+  		$('.navbar-close').on('vclick', function(e) {
   			e.preventDefault();
   			$.mobile.activePage.back = true;
   			window.history.back();
@@ -337,12 +337,12 @@ window.require.register("views/example-view", function(exports, require, module)
   var View = require('./view');
 
   //Template declaration
-  var template = require('./templates/example');
+  var template = require('./templates/pull-refresh');
   //For multiple template views
   //var SecondTemplate = require('./templates/secondExample');
 
   //Models required for objects
-  var Model = require('../models/example');
+  var Model = require('../models/example_model');
 
   module.exports = View.extend({
   	id: 'example-view',

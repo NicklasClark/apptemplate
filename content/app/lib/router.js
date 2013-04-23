@@ -13,13 +13,13 @@ module.exports = Backbone.Router.extend({
 
 	initialize:function () {
 		// Handle back button throughout the application or menu buttons
-		$('#back-button').live('vclick', function(e) {
+		$('#back-button').on('vclick', function(e) {
 			e.preventDefault();
 			$.mobile.activePage.back = true;
 			window.history.back();
 		});
 		
-		$('.navbar-close').live('vclick', function(e) {
+		$('.navbar-close').on('vclick', function(e) {
 			e.preventDefault();
 			$.mobile.activePage.back = true;
 			window.history.back();
