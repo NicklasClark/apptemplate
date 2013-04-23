@@ -332,14 +332,6 @@ window.require.register("models/model", function(exports, require, module) {
   });
   
 });
-window.require.register("templates/pull-refresh", function(exports, require, module) {
-  module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-    helpers = helpers || Handlebars.helpers;
-    var foundHelper, self=this;
-
-
-    return "<div id=\"header\">Pull Refresh</div>\n\n<div id=\"wrapper\">\n  <div id=\"scroller\">\n    <div id=\"pullDown\">\n      <span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">Pull down to refresh...</span>\n    </div>\n\n    <ul id=\"thelist\">\n      <li>Row 1</li>\n      <li>Row 2</li>\n      <li>Row 3</li>\n      <li>Row 4</li>\n      <li>Row 5</li>\n      <li>Row 6</li>\n      <li>Row 7</li>\n      <li>Row 8</li>\n      <li>Row 9</li>\n      <li>Row 10</li>\n      <li>Row 11</li>\n      <li>Row 12</li>\n      <li>Row 13</li>\n      <li>Row 14</li>\n      <li>Row 15</li>\n      <li>Row 16</li>\n      <li>Row 17</li>\n      <li>Row 18</li>\n      <li>Row 19</li>\n      <li>Row 20</li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"footer\">Footer</div>";});
-});
 window.require.register("views/example-view", function(exports, require, module) {
   //Standard View initialization
   var View = require('./view');
@@ -485,6 +477,14 @@ window.require.register("views/pullRefresh-view", function(exports, require, mod
 
   });
   
+});
+window.require.register("views/templates/pull-refresh", function(exports, require, module) {
+  module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+    helpers = helpers || Handlebars.helpers;
+    var foundHelper, self=this;
+
+
+    return "<div id=\"header\">Pull Refresh</div>\n\n<div id=\"wrapper\">\n  <div id=\"scroller\">\n    <div id=\"pullDown\">\n      <span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">Pull down to refresh...</span>\n    </div>\n\n    <ul id=\"thelist\">\n      <li>Row 1</li>\n      <li>Row 2</li>\n      <li>Row 3</li>\n      <li>Row 4</li>\n      <li>Row 5</li>\n      <li>Row 6</li>\n      <li>Row 7</li>\n      <li>Row 8</li>\n      <li>Row 9</li>\n      <li>Row 10</li>\n      <li>Row 11</li>\n      <li>Row 12</li>\n      <li>Row 13</li>\n      <li>Row 14</li>\n      <li>Row 15</li>\n      <li>Row 16</li>\n      <li>Row 17</li>\n      <li>Row 18</li>\n      <li>Row 19</li>\n      <li>Row 20</li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"footer\">Footer</div>";});
 });
 window.require.register("views/view", function(exports, require, module) {
   require('lib/view_helper');
