@@ -105,10 +105,13 @@ window.require.register("application", function(exports, require, module) {
   		var Home = require('views/example-view');
   		var Router = require('lib/router');
   		var PullRefresh = require('views/pullRefresh-view');
+  		var MultipleChoice = require('views/multipleChoice-view');
 
   		this.homeView = new Home();
   		this.router = new Router();
   		this.pullRefreshView = new PullRefresh;
+  		this.multipleChoiceView = new MultipleChoice;
+
 
   		if (typeof Object.freeze === 'function') Object.freeze(this);
   		// Initializing BackStack.StackNavigator for the #container div
@@ -149,7 +152,8 @@ window.require.register("lib/router", function(exports, require, module) {
   		// If you want to save login state, send them to a prelogin function which checks for login state
   		//'':'preLogin',
   		'home':'home',
-  		'pullRefresh':'pullRefresh'
+  		'pullRefresh':'pullRefresh',
+  		'multipleChoice':'multipleChoice'
   	},
 
   	initialize:function () {
@@ -230,6 +234,10 @@ window.require.register("lib/router", function(exports, require, module) {
 
   	pullRefresh:function() {
   		this.changePage(Application.pullRefreshView);
+  	},
+
+  	multipleChoice:function() {
+  		this.changePage(Application.multipleChoiceView);
   	},
 
 
@@ -336,6 +344,51 @@ window.require.register("models/model", function(exports, require, module) {
   });
   
 });
+window.require.register("views/choice-view", function(exports, require, module) {
+  //Standard View initialization
+  var View = require('./view');
+  var template = require('./templates/multipleChoice');
+
+  module.exports = View.extend({
+  	id: 'multiple-choice',
+  	template: template,
+  	events: {
+  		"dataLoaded":"append"
+  	},
+
+  	initialize: function() {
+
+  	},
+
+  	render: function() {
+  		//Called on page render
+
+  		//If you are using loading spinner, don't forget .hide
+  	//	$('#theSpinner').show();
+
+
+  		this.$el.html(this.template());
+
+
+  		return this;
+  	},
+
+  	append: function(){
+
+  	},
+
+  //sample filepicker call
+  //sample childbrowser
+  //sample in app browser call
+  //what else?
+
+  	// enableScroll: function() {
+  	// 	scrollItems = new iScroll('scrollItems', {useTransition:true,hScroll:false});
+  	// }
+
+  });
+  
+});
 window.require.register("views/example-view", function(exports, require, module) {
   //Standard View initialization
   var View = require('./view');
@@ -416,6 +469,51 @@ window.require.register("views/example-view", function(exports, require, module)
   });
   
 });
+window.require.register("views/multipleChoice-view", function(exports, require, module) {
+  //Standard View initialization
+  var View = require('./view');
+  var template = require('./templates/multipleChoice');
+
+  module.exports = View.extend({
+  	id: 'multiple-choice',
+  	template: template,
+  	events: {
+  		"dataLoaded":"append"
+  	},
+
+  	initialize: function() {
+
+  	},
+
+  	render: function() {
+  		//Called on page render
+
+  		//If you are using loading spinner, don't forget .hide
+  	//	$('#theSpinner').show();
+
+
+  		this.$el.html(this.template());
+
+
+  		return this;
+  	},
+
+  	append: function(){
+
+  	},
+
+  //sample filepicker call
+  //sample childbrowser
+  //sample in app browser call
+  //what else?
+
+  	// enableScroll: function() {
+  	// 	scrollItems = new iScroll('scrollItems', {useTransition:true,hScroll:false});
+  	// }
+
+  });
+  
+});
 window.require.register("views/pullRefresh-view", function(exports, require, module) {
   //Standard View initialization
   var View = require('./view');
@@ -461,13 +559,21 @@ window.require.register("views/pullRefresh-view", function(exports, require, mod
   });
   
 });
+window.require.register("views/templates/multipleChoice", function(exports, require, module) {
+  module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+    helpers = helpers || Handlebars.helpers;
+    var foundHelper, self=this;
+
+
+    return "  <div id=\"multiple\">\n\n      <div>\n          <input type=\"radio\" name=\"option\" id=\"choice1\" value=\"Pizza\">\n          <span>Pizza</span>\n      </div>\n\n      <div>\n          <input type=\"radio\" name=\"option\" id=\"choice2\" value=\"Wings\">\n          <span>Wings</span>\n      </div>\n\n      <div>\n          <input type=\"radio\" name=\"option\" id=\"choice3\" value=\"Waffles\">\n          <span>Waffles</span>\n      </div>\n\n      <div>\n          <input type=\"radio\" name=\"option\" id=\"choice-own\" value=\"Other\">\n          <span>Other</span>\n      </div>\n\n      <div id=\"other-field\" class=\"hide\">\n        <input name=\"name\" id=\"myInput\" type=\"text\" placeholder=\"I want to eat ...\" />\n      </div>\n\n      <div>\n        <input type=\"submit\" class=\"submit\" id=\"submit\" value=\"Feed Me\" />\n      </div>\n\n  </div>\n\n  <textarea cols=\"40\" rows=\"2\" id=\"log\" placeholder=\"Food Log\"></textarea>";});
+});
 window.require.register("views/templates/pullRefresh", function(exports, require, module) {
   module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
     helpers = helpers || Handlebars.helpers;
     var foundHelper, self=this;
 
 
-    return "<div id=\"header\">Pull Refresh</div>\n\n<div id=\"wrapper\">\n  <div id=\"scroller\">\n    <div id=\"pullDown\">\n      <span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">Pull down to refresh...</span>\n    </div>\n\n    <ul id=\"thelist\">\n      <li>Row 1</li>\n      <li>Row 2</li>\n      <li>Row 3</li>\n      <li>Row 4</li>\n      <li>Row 5</li>\n      <li>Row 6</li>\n      <li>Row 7</li>\n      <li>Row 8</li>\n      <li>Row 9</li>\n      <li>Row 10</li>\n      <li>Row 11</li>\n      <li>Row 12</li>\n      <li>Row 13</li>\n      <li>Row 14</li>\n      <li>Row 15</li>\n      <li>Row 16</li>\n      <li>Row 17</li>\n      <li>Row 18</li>\n      <li>Row 19</li>\n      <li>Row 20</li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"footer\">Footer</div>";});
+    return "<div id=\"header\">Pull Refresh</div>\n\n<div id=\"wrapper\">\n  <div id=\"scroller\">\n    <div id=\"pullDown\">\n      <span class=\"pullDownIcon\"></span><span class=\"pullDownLabel\">Pull down to refresh...</span>\n    </div>\n\n    <ul id=\"thelist\">\n      <li>Message 1</li>\n      <li>Message 2</li>\n      <li>Message 3</li>\n      <li>Message 4</li>\n      <li>Message 5</li>\n      <li>Message 6</li>\n      <li>Message 7</li>\n      <li>Message 8</li>\n      <li>Message 9</li>\n      <li>Message 10</li>\n      <li>Message 11</li>\n      <li>Message 12</li>\n      <li>Message 13</li>\n      <li>Message 14</li>\n      <li>Message 15</li>\n      <li>Message 16</li>\n      <li>Message 17</li>\n      <li>Message 18</li>\n      <li>Message 19</li>\n      <li>Message 20</li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"footer\">Footer</div>";});
 });
 window.require.register("views/view", function(exports, require, module) {
   require('lib/view_helper');

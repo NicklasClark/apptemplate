@@ -19,8 +19,8 @@ exports.config =
           'vendor/scripts/backbone/json2.js',
           'vendor/scripts/backbone/backbone1.0-min.js',
           'vendor/scripts/backbone/backstack.js',
-          'vendor/scripts/iscroll.js'
-         # 'vendor/scripts/_bg-options.js'
+          'vendor/scripts/iscroll.js',
+          'vendor/scripts/bg-options.js'
          # 'vendor/scripts/_jquery.royalslider.min.js',
          # 'vendor/scripts/_jquery.chardinjs.min.js'
         ]

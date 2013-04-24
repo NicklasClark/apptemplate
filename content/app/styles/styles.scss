@@ -1,4 +1,15 @@
 /********************************
+GENERAL STYLES
+********************************/
+body {
+  background-color: #ccc;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hide {
+  display: none;
+}
+/********************************
 iSCROLL TEMPLATE
 ********************************/
 #header {
@@ -56,7 +67,7 @@ iSCROLL TEMPLATE
   text-align:left;
 
   li {
-    padding:0 10px;
+    padding:10px;
     height:40px;
     line-height:40px;
     border-bottom:1px solid #ccc;
@@ -116,3 +127,78 @@ iSCROLL TEMPLATE
   from { -webkit-transform:rotate(0deg) translateZ(0); }
   to { -webkit-transform:rotate(360deg) translateZ(0); }
 }
+
+input{
+  -webkit-appearance: none; /*disables inner shadows on iOS*/
+}
+
+/********************************
+MULTIPLE CHOICE TEMPLATE
+********************************/
+
+#multiple {
+  width: 180px;
+  margin: 0 auto;
+  padding: 10px 70px 100px 70px;
+  border: 1px solid red;
+
+  span {
+    margin-left: 20px;
+    font-size: 21px;
+  }
+
+  input[type="radio"]{
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 50%;
+    position: relative;
+    top: 15px;
+    border: 2px solid #333;
+  }
+
+  input[type="radio"]:checked{
+    background-color: #f35477;
+    -webkit-box-shadow: inset 0px 5px 0px #fff,
+                        inset 0px 18px 0px #333;
+  }
+
+  #other-field input[type="text"]{
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    position: absolute;
+    margin-top: 30px;
+  }
+
+  input.submit {
+    width: 190px;
+    position: relative;
+    color:#fff;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    background:#f35477;
+    border: none;
+    top: 80px;
+    &:active {
+      background: #333 !important;
+    }
+  }
+}
+
+textarea#log {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  background-color: #ddd;
+  font-size: 12px;
+  padding: 10px;
+  min-height: 50px;
+  position: relative;
+  top: 50px;
+  -webkit-border-radius: 5px;
+  resize: none;
+}
+
+

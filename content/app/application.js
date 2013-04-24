@@ -23,10 +23,13 @@ Application = {
 		var Home = require('views/example-view');
 		var Router = require('lib/router');
 		var PullRefresh = require('views/pullRefresh-view');
+		var MultipleChoice = require('views/multipleChoice-view');
 
 		this.homeView = new Home();
 		this.router = new Router();
 		this.pullRefreshView = new PullRefresh;
+		this.multipleChoiceView = new MultipleChoice;
+
 
 		if (typeof Object.freeze === 'function') Object.freeze(this);
 		// Initializing BackStack.StackNavigator for the #container div
