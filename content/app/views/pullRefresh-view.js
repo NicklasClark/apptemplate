@@ -1,6 +1,6 @@
 //Standard View initialization
 var View = require('./view');
-var template = require('./templates/pull-refresh');
+var template = require('./templates/pullRefresh');
 
 module.exports = View.extend({
 	id: 'pull-refresh',

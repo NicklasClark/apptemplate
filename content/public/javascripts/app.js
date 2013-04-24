@@ -145,11 +145,11 @@ window.require.register("lib/router", function(exports, require, module) {
 
   	routes: {
   		//Setting routes
-  		
-  		// If you want to save login state, send them to a prelogin function which checks for login state
-  		//'':'preLogin',		
-  		'home':'home'
 
+  		// If you want to save login state, send them to a prelogin function which checks for login state
+  		//'':'preLogin',
+  		'home':'home',
+  		'pullRefresh':'pullRefresh'
   	},
 
   	initialize:function () {
@@ -159,18 +159,18 @@ window.require.register("lib/router", function(exports, require, module) {
   			$.mobile.activePage.back = true;
   			window.history.back();
   		});
-  		
+
   		$('.navbar-close').on('vclick', function(e) {
   			e.preventDefault();
   			$.mobile.activePage.back = true;
   			window.history.back();
   		});
-  		
+
 
   		// Menu
   		//Settings for side menu will go here if applicable
   		//$('#menu_button').live('click', this.toggleMenu);
-  		
+
   		// Loading spinner
   		//$('body').append('<div id="theSpinner" class="spinnerModal" style="display:none"><div class="spinnerContainer"><div class="spinnerWrapper"><div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div></div><div class="description">Pencils Ready!</div></div></div>');
 
@@ -178,7 +178,7 @@ window.require.register("lib/router", function(exports, require, module) {
   		this.firstPage = true;
 
   	},
-  	
+
   	//If you have a side toggle menu
 
   	//toggleMenu: function() {
@@ -228,7 +228,11 @@ window.require.register("lib/router", function(exports, require, module) {
   		this.changePage(Application.homeView);
   	},
 
-  	
+  	pullRefresh:function() {
+  		this.changePage(Application.pullRefreshView);
+  	},
+
+
   	//Functions for page transitions
   	changePage:function (page) {
   		window.tapReady = false;
@@ -253,14 +257,14 @@ window.require.register("lib/router", function(exports, require, module) {
   		$(document).delegate(page.el, 'pageshow', function () {
   			window.tapReady = true;
   		});
-  	},  
+  	},
 
   	//setupMenu: function(menuType) {
 
   	//	var logout = function(){
-  			
+
   	//		window.localStorage.removeItem("user_name");
-  			
+
   	//		$('#menu').hide();
   	//		Application.router.menuClose();
   	//		Application.router.navigate("/", {trigger: true});
@@ -276,9 +280,9 @@ window.require.register("lib/router", function(exports, require, module) {
 
   	//			Application.router.menuClose();
   	//		};
-  			
+
   	//		$('#menu_home').bind('click', menuHome);
-  			
+
   	//	}
   	//},
 
@@ -415,7 +419,7 @@ window.require.register("views/example-view", function(exports, require, module)
 window.require.register("views/pullRefresh-view", function(exports, require, module) {
   //Standard View initialization
   var View = require('./view');
-  var template = require('./templates/pull-refresh');
+  var template = require('./templates/pullRefresh');
 
   module.exports = View.extend({
   	id: 'pull-refresh',
@@ -478,7 +482,7 @@ window.require.register("views/pullRefresh-view", function(exports, require, mod
   });
   
 });
-window.require.register("views/templates/pull-refresh", function(exports, require, module) {
+window.require.register("views/templates/pullRefresh", function(exports, require, module) {
   module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
     helpers = helpers || Handlebars.helpers;
     var foundHelper, self=this;

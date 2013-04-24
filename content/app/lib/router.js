@@ -4,11 +4,11 @@ module.exports = Backbone.Router.extend({
 
 	routes: {
 		//Setting routes
-		
-		// If you want to save login state, send them to a prelogin function which checks for login state
-		//'':'preLogin',		
-		'home':'home'
 
+		// If you want to save login state, send them to a prelogin function which checks for login state
+		//'':'preLogin',
+		'home':'home',
+		'pullRefresh':'pullRefresh'
 	},
 
 	initialize:function () {
@@ -18,18 +18,18 @@ module.exports = Backbone.Router.extend({
 			$.mobile.activePage.back = true;
 			window.history.back();
 		});
-		
+
 		$('.navbar-close').on('vclick', function(e) {
 			e.preventDefault();
 			$.mobile.activePage.back = true;
 			window.history.back();
 		});
-		
+
 
 		// Menu
 		//Settings for side menu will go here if applicable
 		//$('#menu_button').live('click', this.toggleMenu);
-		
+
 		// Loading spinner
 		//$('body').append('<div id="theSpinner" class="spinnerModal" style="display:none"><div class="spinnerContainer"><div class="spinnerWrapper"><div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div></div><div class="description">Pencils Ready!</div></div></div>');
 
@@ -37,7 +37,7 @@ module.exports = Backbone.Router.extend({
 		this.firstPage = true;
 
 	},
-	
+
 	//If you have a side toggle menu
 
 	//toggleMenu: function() {
@@ -87,7 +87,11 @@ module.exports = Backbone.Router.extend({
 		this.changePage(Application.homeView);
 	},
 
-	
+	pullRefresh:function() {
+		this.changePage(Application.pullRefreshView);
+	},
+
+
 	//Functions for page transitions
 	changePage:function (page) {
 		window.tapReady = false;
@@ -112,14 +116,14 @@ module.exports = Backbone.Router.extend({
 		$(document).delegate(page.el, 'pageshow', function () {
 			window.tapReady = true;
 		});
-	},  
+	},
 
 	//setupMenu: function(menuType) {
 
 	//	var logout = function(){
-			
+
 	//		window.localStorage.removeItem("user_name");
-			
+
 	//		$('#menu').hide();
 	//		Application.router.menuClose();
 	//		Application.router.navigate("/", {trigger: true});
@@ -135,9 +139,9 @@ module.exports = Backbone.Router.extend({
 
 	//			Application.router.menuClose();
 	//		};
-			
+
 	//		$('#menu_home').bind('click', menuHome);
-			
+
 	//	}
 	//},
 
