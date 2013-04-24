@@ -2,7 +2,7 @@
 var View = require('./view');
 
 //Template declaration
-var template = require('./templates/pull-refresh');
+var template = require('./templates/pullRefresh');
 //For multiple template views
 //var SecondTemplate = require('./templates/secondExample');
 
@@ -20,22 +20,22 @@ module.exports = View.extend({
 
 	},
 
-	initialize: function() {  
+	initialize: function() {
 		//called upon app initialization
 
 	},
 
-	render: function() {	
+	render: function() {
 		//Called on page render
-		
+
 		//If you are using loading spinner, don't forget .hide
 	//	$('#theSpinner').show();
-	
+
 	//Example JSON call
-	
+
 		//Set local model
 		this.descriptiveName = new Model();
-		
+
 		//Set empty json
 		this.descriptiveName.nameJSON ={};
 
@@ -53,14 +53,14 @@ module.exports = View.extend({
 				Application.thisView.$el.trigger("dataLoaded");
 			}
 		});
-		
+
 		return this;
 	},
 
 	append: function(){
 		this.descriptiveName.nameJSON = this.descriptiveName.handle();
 		this.$el.html(this.template(this.descriptiveName.nameJSON));
-		this.enableScroll();		
+		this.enableScroll();
 	},
 
 //sample filepicker call
@@ -69,8 +69,8 @@ module.exports = View.extend({
 //what else?
 
 
-	
-	enableScroll: function() {		
+
+	enableScroll: function() {
 		scrollItems = new iScroll('scrollItems', {useTransition:true,hScroll:false});
 	}
 
