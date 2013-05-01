@@ -438,10 +438,12 @@ window.require.register("views/home-view", function(exports, require, module) {
 window.require.register("views/templates/home", function(exports, require, module) {
   module.exports = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
     helpers = helpers || Handlebars.helpers;
-    var foundHelper, self=this;
+    var buffer = "", foundHelper, self=this;
 
 
-    return "<div id=\"header\">\n  <div id=\"back-button\"><i class=\"icon-left-open\"></i></div>\n  <h1>Convo</h1>\n  <i class=\"icon-search\"></i>\n  <div id=\"info\">\n    <div class=\"nav-circle\"><i class=\"icon-info\"></i></div>\n    </div>\n</div>\n\n<div id=\"wrapper\">\n  <div id=\"scroller\">\n\n  </div>\n</div>\n\n<div id=\"footer\">\n  <div id=\"attach-circle\"><i class=\"icon-attach\"></i></div>\n  <input id=\"message\" placeholder=\"Do you know any funny jokes?\" type=\"text\">\n  <div id=\"send\">Send</div>\n</div>\n\n\n";});
+    buffer += "<div id=\"header\">\n  <div id=\"back-button\"><i class=\"icon-left-open\"></i></div>\n  <h1>Convo</h1>\n  <i class=\"icon-search\"></i>\n  <div id=\"info\">\n    <div class=\"nav-circle\"><i class=\"icon-info\"></i></div>\n    </div>\n</div>\n\n<div id=\"container\">\n<div class=\"notification\">\n  <div class=\"notification-icon\"><i class=\"icon-thisthat-circle rotate90\"></i></div>\n\n  <div class=\"notification-content\">\n    <p>Christina J. posted a <strong>this or that:</strong></p>\n    <p><strong>“Shoes for Saturday night?”</strong></p>\n  </div>\n\n  <div class=\"notification-arrow rotate180\">\n    <i class=\"icon-left-open\"></i>\n  </div>\n\n</div>\n\n\n</div> ";
+    buffer += "\n\n<div id=\"footer\">\n  <div id=\"attach-circle\"><i class=\"icon-attach\"></i></div>\n  <input id=\"message\" placeholder=\"Do you know any funny jokes?\" type=\"text\">\n  <div id=\"send\">Send</div>\n</div>";
+    return buffer;});
 });
 window.require.register("views/view", function(exports, require, module) {
   require('lib/view_helper');
