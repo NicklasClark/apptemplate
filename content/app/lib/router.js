@@ -7,9 +7,7 @@ module.exports = Backbone.Router.extend({
 
 		// If you want to save login state, send them to a prelogin function which checks for login state
 		//'':'preLogin',
-		'home':'home',
-		'pullRefresh':'pullRefresh',
-		'multipleChoice':'multipleChoice'
+		'':'home'
 	},
 
 	initialize:function () {
@@ -86,14 +84,6 @@ module.exports = Backbone.Router.extend({
 	//Functions for changing pages
 	home:function() {
 		this.changePage(Application.homeView);
-	},
-
-	pullRefresh:function() {
-		this.changePage(Application.pullRefreshView);
-	},
-
-	multipleChoice:function() {
-		this.changePage(Application.multipleChoiceView);
 	},
 
 

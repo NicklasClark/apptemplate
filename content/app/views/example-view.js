@@ -2,7 +2,7 @@
 var View = require('./view');
 
 //Template declaration
-var template = require('./templates/pullRefresh');
+var template = require('./templates/');
 //For multiple template views
 //var SecondTemplate = require('./templates/secondExample');
 

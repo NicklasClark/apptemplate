@@ -21,8 +21,6 @@ exports.config =
           'vendor/scripts/backbone/backstack.js',
           'vendor/scripts/iscroll.js',
           'vendor/scripts/bg-options.js'
-         # 'vendor/scripts/_jquery.royalslider.min.js',
-         # 'vendor/scripts/_jquery.chardinjs.min.js'
         ]
 
     stylesheets:
@@ -31,9 +29,8 @@ exports.config =
       order:
         before: [
           'vendor/styles/normalize.css',
-          'jquery.mobile.1.3.1.min.css'
-          # 'vendor/styles/_royalslider.css',
-          # 'vendor/styles/_chardinjs.css'
+          'vendor/styles/jquery.mobile.1.3.1.min.css',
+          'app/styles/fonts.css'
         ]
         after: ['']
 

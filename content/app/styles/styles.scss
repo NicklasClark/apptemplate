@@ -1,29 +1,122 @@
 /********************************
+MIXINS
+********************************/
+$bitter: 'BitterRegular';
+$bitterBold: 'BitterBold';
+
+$avenir: 'AvenirNextRegular';
+$avenirLight: 'AvenirNextUltraLight';
+
+$header-grey: #474747;
+
+/********************************
 GENERAL STYLES
 ********************************/
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
-  background-color: #ccc;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ui-page {
+  background: url(../images/bg.png); /* page background */
+}
+
+/********************************
+RESETS
+********************************/
+input.ui-input-text,
+textarea.ui-input-text {
+  margin: 0;
+  -webkit-appearance: none; /* disables inner shadows on iOS */
+}
+
+/********************************
+HELPER STYLES
+********************************/
+.clearfix {
+  zoom: 1;
+  &:before, &:after { content: ""; display: table; }
+  &:after { clear: both; }
 }
 
 .hide {
   display: none;
 }
+
 /********************************
-iSCROLL TEMPLATE
+HEADER & FOOTER
 ********************************/
 #header {
   position:absolute;
   z-index:2;
-  top:0; left:0;
+  top:-1px;
+  left:0;
   width:100%;
   height:45px;
-  line-height:45px;
-  background-color:#333;
+  line-height:46px;
   padding:0;
-  color:#eee;
-  font-size:20px;
+  color: $header-grey;
+  font-size:25px;
   text-align:center;
+  background: url(../images/bg-header@2x.png);
+  border: 1px solid #aba7a7;
+  box-shadow: inset 0 0 3px 1px rgba(255,255,255,0.6);
+
+  h1 {
+    font-family: $bitter;
+    text-shadow: 1px 1px rgba(255,255,255,1);
+  }
+
+  #back-button {
+    width: 43px;
+    height: 46px;
+    position: absolute;
+    left: -1px;
+    top: -2px;
+    background: url(../images/bg-header-nav@2x.png);
+    border: 1px solid #aba7a7;
+    box-shadow: inset 0 0 0px 1px rgba(255,255,255,0.4),
+                      1px 0 0 1px rgba(255,255,255,0.4);
+    text-shadow: 1px 1px rgba(255,255,255,0.75);
+  }
+
+  .icon-search {
+    position: absolute;
+    top: 0;
+    right: 50px;
+  }
+
+  #info {
+    width: 42px;
+    height: 46px;
+    position: absolute;
+    right: 1px;
+    top: -2px;
+    background: url(../images/bg-header-nav@2x.png);
+    border: 1px solid #aba7a7;
+    box-shadow: inset 0 0 0px 1px rgba(255,255,255,0.4),
+                      -1px 0 0 1px rgba(255,255,255,0.4);
+  }
+  .nav-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    border: 1px solid #7b7b7b;
+    position: relative;
+    top: 8px;
+    left: 6px;
+    box-shadow: 1px 1px rgba(255,255,255,0.75);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 50%,rgba(0,0,0,0.08) 100%);
+
+    .icon-info {
+      position: relative;
+      line-height: 1;
+      top: 3px;
+      left: 2px;
+    }
+  }
 }
 
 #footer {
@@ -32,173 +125,69 @@ iSCROLL TEMPLATE
   bottom:0;
   left:0;
   width:100%;
-  height:48px;
-  background-color:#333;
+  height:44px;
+  line-height:46px;
   padding:0;
-  color:#eee;
-  font-size:20px;
+  color: $header-grey;
+  font-size:25px;
   text-align:center;
-  line-height:48px;
-}
+  background: url(../images/bg-header@2x.png);
+  border: 1px solid #aba7a7;
+  box-shadow: inset 0 0 3px 1px rgba(255,255,255,0.6);
 
-#wrapper {
-  position:absolute; z-index:1;
-  top:45px;
-  bottom:48px;
-  left:-9999px;
-  width:100%;
-  background:#aaa;
-  overflow:auto;
-}
+  #attach-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    border: 1px solid #7b7b7b;
+    position: absolute;;
+    top: 8px;
+    left: 6px;
+    box-shadow: 1px 1px rgba(255,255,255,0.75);
 
-#scroller {
-  position:absolute;
-  z-index:1;
-  /* -webkit-touch-callout:none; */
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
-  width:100%;
-  padding:0;
-
-  ul {
-  list-style:none;
-  padding:0;
-  margin:0;
-  width:100%;
-  text-align:left;
-
-  li {
-    padding:10px;
-    height:40px;
-    line-height:40px;
-    border-bottom:1px solid #ccc;
-    border-top:1px solid #fff;
-    background-color:#fafafa;
-    font-size:14px;
+    .icon-attach {
+      position: relative;
+      font-size: 18px;
+      line-height: 1;
+      top: 5px;
+      left: 2px;
     }
   }
-}
 
-#myFrame {
-  position:absolute;
-  top:0; left:0;
-}
-
-/*
- Pull to Refresh
-*/
-
-#pullDown {
-  background:#fff;
-  height:40px;
-  line-height:40px;
-  padding:5px 10px;
-  border-bottom:1px solid #ccc;
-  font-weight:bold;
-  font-size:14px;
-  color:#888;
-
-  .pullDownIcon {
-    display:block; float:left;
-    width:40px; height:40px;
-    background:url(../images/pull-icon@2x.png) 0 0 no-repeat;
-    -webkit-background-size:40px 80px; background-size:40px 80px;
-    -webkit-transition-property:-webkit-transform;
-    -webkit-transition-duration:250ms;
-    -webkit-transform:rotate(0deg) translateZ(0);
-  }
-}
-
-#pullDown.flip .pullDownIcon {
-  -webkit-transform:rotate(-180deg) translateZ(0);
-}
-
-#pullDown.loading .pullDownIcon {
-  background-position:0 100%;
-  -webkit-transform:rotate(0deg) translateZ(0);
-  -webkit-transition-duration:0ms;
-
-  -webkit-animation-name:loading;
-  -webkit-animation-duration:2s;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-animation-timing-function:linear;
-}
-
-@-webkit-keyframes loading {
-  from { -webkit-transform:rotate(0deg) translateZ(0); }
-  to { -webkit-transform:rotate(360deg) translateZ(0); }
-}
-
-input{
-  -webkit-appearance: none; /*disables inner shadows on iOS*/
-}
-
-/********************************
-MULTIPLE CHOICE TEMPLATE
-********************************/
-
-#multiple {
-  width: 180px;
-  margin: 0 auto;
-  padding: 10px 70px 100px 70px;
-  border: 1px solid red;
-
-  span {
-    margin-left: 20px;
-    font-size: 21px;
-  }
-
-  input[type="radio"]{
-    width: 36px;
-    height: 36px;
-    -webkit-border-radius: 50%;
-    position: relative;
-    top: 15px;
-    border: 2px solid #333;
-  }
-
-  input[type="radio"]:checked{
-    background-color: #f35477;
-    -webkit-box-shadow: inset 0px 5px 0px #fff,
-                        inset 0px 18px 0px #333;
-  }
-
-  #other-field input[type="text"]{
-    border: none;
-    padding: 10px 20px;
-    font-size: 13px;
+   input[type="text"]#message {
     position: absolute;
-    margin-top: 30px;
-  }
-
-  input.submit {
-    width: 190px;
-    position: relative;
-    color:#fff;
-    padding: 16px;
+    top: 5px;
+    left: 11.2%;
+    width: 75%;
+    height: 34px;
+    border-radius: 17px;
+    border: 1px solid #aba7a7;
+    font-family: $avenirLight;
     font-size: 16px;
-    line-height: 16px;
-    background:#f35477;
-    border: none;
-    top: 80px;
-    &:active {
-      background: #333 !important;
+    padding-left: 15px;
+
+    &:focus {
     }
   }
+
+  ::-webkit-input-placeholder {
+     color: #c0bfbe;
+  }
+
+
+  #send {
+    width: 43px;
+    height: 44px;
+    position: absolute;
+    right: 0px;
+    bottom: -1px;
+    background: url(../images/bg-footer-nav@2x.png);
+    border: 1px solid #aba7a7;
+    box-shadow: inset 0 0 0px 1px rgba(255,255,255,0.2),
+                      1px 0 0 1px rgba(255,255,255,0.2);
+    font-family: $bitter;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: -1px -1px rgba(0,0,0,0.2);
+  }
 }
-
-textarea#log {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-  background-color: #ddd;
-  font-size: 12px;
-  padding: 10px;
-  min-height: 50px;
-  position: relative;
-  top: 50px;
-  -webkit-border-radius: 5px;
-  resize: none;
-}
-
-

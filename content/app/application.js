@@ -19,16 +19,12 @@ Application = {
 		$.mobile.defaultHomeScroll = 0;
 
 	// 	Setting view to location in views folder
-
-		var Home = require('views/example-view');
+		var Home = require('views/home-view');
 		var Router = require('lib/router');
-		var PullRefresh = require('views/pullRefresh-view');
-		var MultipleChoice = require('views/multipleChoice-view');
 
-		this.homeView = new Home();
+		this.homeView = new Home;
 		this.router = new Router();
-		this.pullRefreshView = new PullRefresh;
-		this.multipleChoiceView = new MultipleChoice;
+
 
 
 		if (typeof Object.freeze === 'function') Object.freeze(this);
