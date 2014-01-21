@@ -13,7 +13,7 @@ exports.config =
           'vendor/scripts/cordova/cordova-2.4.0.js',
           'vendor/scripts/cordova/plugins/ChildBrowser.js',
           'vendor/scripts/cordova/plugins/Filepicker.js',
-          'vendor/scripts/jquery-1.9.1.min.js',
+          'vendor/scripts/jquery-1.10.2.min.js',
           'vendor/scripts/jquery.mobile-1.3.1.min.js'
           'vendor/scripts/backbone/underscore-1.5.2-min.js',
           'vendor/scripts/backbone/json2.js',
