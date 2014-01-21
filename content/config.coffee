@@ -17,7 +17,7 @@ exports.config =
           'vendor/scripts/jquery.mobile-1.3.1.min.js'
           'vendor/scripts/backbone/underscore-1.4.4-min.js',
           'vendor/scripts/backbone/json2.js',
-          'vendor/scripts/backbone/backbone1.0-min.js',
+          'vendor/scripts/backbone/backbone1.1-min.js',
           'vendor/scripts/backbone/backstack.js',
           'vendor/scripts/iscroll.js',
           'vendor/scripts/bg-options.js'
